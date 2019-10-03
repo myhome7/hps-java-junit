@@ -1,96 +1,75 @@
 package com.coffeemachine;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import static junit.framework.Assert.assertEquals;
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
-
 public class Actionwords {
-    public CoffeeMachine sut = new CoffeeMachine();
-    public boolean handleWater = false;
-    public boolean handleBeans = false;
-    public boolean handleGrounds = false;
-
-    public void iStartTheCoffeeMachineUsingLanguageLang() {
-        iStartTheCoffeeMachineUsingLanguageLang("en");
-    }
 
     public void iStartTheCoffeeMachineUsingLanguageLang(String lang) {
-        sut.start(lang);
+        // TODO: Implement action: String.format("Start the coffee machine using language %s", lang)
+        throw new UnsupportedOperationException();
     }
 
     public void iShutdownTheCoffeeMachine() {
-        sut.stop();
+        // TODO: Implement action: "Shutdown coffee machine"
+        throw new UnsupportedOperationException();
     }
 
     public void messageMessageShouldBeDisplayed(String message) {
-        assertEquals(sut.message(), message);
+        // TODO: Implement result: String.format("Displayed message is \"%s\"", message)
+        throw new UnsupportedOperationException();
     }
 
     public void coffeeShouldBeServed() {
-        assertTrue(sut.coffeeServed);
+        // TODO: Implement result: "Coffee is served :)"
+        throw new UnsupportedOperationException();
     }
 
     public void coffeeShouldNotBeServed() {
-        assertFalse(sut.coffeeServed);
+        // TODO: Implement result: "No coffee is served :("
+        throw new UnsupportedOperationException();
     }
 
     public void iTakeACoffee() {
-        sut.takeCoffee();
+        // TODO: Implement action: "Take a coffee"
+        throw new UnsupportedOperationException();
     }
 
     public void iEmptyTheCoffeeGrounds() {
-        sut.emptyGrounds();
+        // TODO: Implement action: "Empty coffee grounds"
+        throw new UnsupportedOperationException();
     }
 
     public void iFillTheBeansTank() {
-        sut.fillBeans();
+        // TODO: Implement action: "Fill beans"
+        throw new UnsupportedOperationException();
     }
 
     public void iFillTheWaterTank() {
-        sut.fillTank();
+        // TODO: Implement action: "Fill water tank"
+        throw new UnsupportedOperationException();
     }
 
     public void iTakeCoffeeNumberCoffees(int coffeeNumber) {
-        while ((coffeeNumber > 0)) {
-            iTakeACoffee();
-            coffeeNumber = coffeeNumber - 1;
 
-            if (handleWater) {
-                iFillTheWaterTank();
-            }
-
-            if (handleBeans) {
-                iFillTheBeansTank();
-            }
-
-            if (handleGrounds) {
-                iEmptyTheCoffeeGrounds();
-            }
-        }
     }
 
     public void theCoffeeMachineIsStarted() {
-        iStartTheCoffeeMachineUsingLanguageLang();
-    }
-
-    public void iHandleWaterTank() {
-        handleWater = true;
-    }
-
-    public void iHandleBeans() {
-        handleBeans = true;
-    }
-
-    public void iHandleCoffeeGrounds() {
-        handleGrounds = true;
+        iStartTheCoffeeMachineUsingLanguageLang("en");
     }
 
     public void iHandleEverythingExceptTheWaterTank() {
         iHandleCoffeeGrounds();
         iHandleBeans();
+    }
+
+    public void iHandleWaterTank() {
+
+    }
+
+    public void iHandleBeans() {
+
+    }
+
+    public void iHandleCoffeeGrounds() {
+
     }
 
     public void iHandleEverythingExceptTheBeans() {
@@ -108,16 +87,22 @@ public class Actionwords {
     }
 
     public void iSwitchToSettingsMode() {
-        sut.showSettings();
+
     }
 
     public void settingsShouldBe(String datatable) {
-        Map<String,String> settings = new HashMap<String, String>();
-        for (String line : datatable.split("\n")) {
-            String[] cells = line.split("\\|");
-            settings.put(cells[1].trim(), cells[2].trim());
-        }
 
-        assertEquals(sut.getSettings(), settings);
+    }
+
+    public void iLookInStrawContainer() {
+        System.out.println("I am looking imn the straw container!");
+    }
+
+    public void iFindStrawNumberStraws(String strawNumber) {
+        System.out.println("I found " + strawNumber + "straws");
+    }
+
+    public void iShouldSeeStrawErrorMessage() {
+        System.out.println("I'm looking for an error message");
     }
 }

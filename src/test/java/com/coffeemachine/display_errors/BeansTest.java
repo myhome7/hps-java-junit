@@ -15,16 +15,18 @@ public class BeansTest extends TestCase {
         actionwords.iHandleEverythingExceptTheBeans();
     }
 
-
+    //
+    // Tags: priority:high
     public void testMessageFillBeansIsDisplayedAfter38CoffeesAreTaken() {
         // When I take "38" coffees
         actionwords.iTakeCoffeeNumberCoffees(38);
         // Then message "Fill beans" should be displayed
         actionwords.messageMessageShouldBeDisplayed("Fill beans");
     }
-
+    //
+    // Tags: priority:low
     public void testItIsPossibleToTake40CoffeesBeforeThereIsReallyNoMoreBeans() {
-        // Given I take "40" coffees
+        // When I take "40" coffees
         actionwords.iTakeCoffeeNumberCoffees(40);
         // Then coffee should be served
         actionwords.coffeeShouldBeServed();
@@ -35,13 +37,23 @@ public class BeansTest extends TestCase {
         // And message "Fill beans" should be displayed
         actionwords.messageMessageShouldBeDisplayed("Fill beans");
     }
-
+    //
+    // Tags: priority:high
     public void testAfterAddingBeansTheMessageFillBeansDisappears() {
-        // Given I take "40" coffees
+        // When I take "40" coffees
         actionwords.iTakeCoffeeNumberCoffees(40);
-        // When I fill the beans tank
+        // And I fill the beans tank
         actionwords.iFillTheBeansTank();
         // Then message "Ready" should be displayed
         actionwords.messageMessageShouldBeDisplayed("Ready");
+    }
+
+    public void testNoStraws() {
+        // When I look in straw container
+        actionwords.iLookInStrawContainer();
+        // And I find "0" straws
+        actionwords.iFindStrawNumberStraws("0");
+        // Then I should see straw error message
+        actionwords.iShouldSeeStrawErrorMessage();
     }
 }
