@@ -4,47 +4,47 @@ public class Actionwords {
 
     public void iStartTheCoffeeMachineUsingLanguageLang(String lang) {
         // TODO: Implement action: String.format("Start the coffee machine using language %s", lang)
-        throw new UnsupportedOperationException();
+        // throw new UnsupportedOperationException();
     }
 
     public void iShutdownTheCoffeeMachine() {
         // TODO: Implement action: "Shutdown coffee machine"
-        throw new UnsupportedOperationException();
+        // throw new UnsupportedOperationException();
     }
 
     public void messageMessageShouldBeDisplayed(String message) {
         // TODO: Implement result: String.format("Displayed message is \"%s\"", message)
-        throw new UnsupportedOperationException();
+        // throw new UnsupportedOperationException();
     }
 
     public void coffeeShouldBeServed() {
         // TODO: Implement result: "Coffee is served :)"
-        throw new UnsupportedOperationException();
+        // throw new UnsupportedOperationException();
     }
 
     public void coffeeShouldNotBeServed() {
         // TODO: Implement result: "No coffee is served :("
-        throw new UnsupportedOperationException();
+        // throw new UnsupportedOperationException();
     }
 
     public void iTakeACoffee() {
         // TODO: Implement action: "Take a coffee"
-        throw new UnsupportedOperationException();
+        // throw new UnsupportedOperationException();
     }
 
     public void iEmptyTheCoffeeGrounds() {
         // TODO: Implement action: "Empty coffee grounds"
-        throw new UnsupportedOperationException();
+        // throw new UnsupportedOperationException();
     }
 
     public void iFillTheBeansTank() {
         // TODO: Implement action: "Fill beans"
-        throw new UnsupportedOperationException();
+        // throw new UnsupportedOperationException();
     }
 
     public void iFillTheWaterTank() {
         // TODO: Implement action: "Fill water tank"
-        throw new UnsupportedOperationException();
+        // throw new UnsupportedOperationException();
     }
 
     public void iTakeCoffeeNumberCoffees(int coffeeNumber) {
