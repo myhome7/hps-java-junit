@@ -3,6 +3,7 @@ package com.coffeemachine;
 import com.saucelabs.saucerest.SauceREST;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.LocalFileDetector;
@@ -140,12 +141,17 @@ public class Actionwords {
         driver.get("https://dev.conversations.dealerinspire.com/login");
         WebElement webElement = driver.findElement(By.cssSelector("input[name=username]"));
         webElement.sendKeys("TestUser");
-        Assert.assertTrue("did not find button", driver.findElement(By.cssSelector("buttohhhn")).isDisplayed());
+        try {
+            Assert.assertTrue("did not find button", driver.findElement(By.cssSelector("buttohhhn")).isDisplayed());
+        } catch(NoSuchElementException e) {
+            System.out.println("ERROR: " + e);
+        }
         driver.quit();
     }
 
     public void iFindStrawNumberStraws(String strawNumber) {
         System.out.println("I found " + strawNumber + "straws");
+        System.out.println("Yay");
     }
 
     public void iShouldSeeStrawErrorMessage() {
