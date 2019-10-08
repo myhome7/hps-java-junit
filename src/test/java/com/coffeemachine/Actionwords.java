@@ -1,6 +1,28 @@
 package com.coffeemachine;
 
+import com.saucelabs.saucerest.SauceREST;
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class Actionwords {
+
+    private RemoteWebDriver driver;
+    private String platform = System.getProperty("platform", "OS X 10.11");
+    private String browser = System.getProperty("browser", "chrome");
+    private String browserVersion = System.getProperty("browserVersion", "71");
+    private String testName = "Hiptest Test";
+    private static final String sauceUser = System.getenv("SAUCE_USERNAME");
+    private static final String sauceKey = System.getenv("SAUCE_ACCESS_KEY");
+    private SauceREST sauceClient;
+
+
 
     public void iStartTheCoffeeMachineUsingLanguageLang(String lang) {
         // TODO: Implement action: String.format("Start the coffee machine using language %s", lang)
@@ -95,7 +117,31 @@ public class Actionwords {
     }
 
     public void iLookInStrawContainer() {
-        System.out.println("I am looking imn the straw container!");
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", browser);
+        capabilities.setCapability("version", browserVersion);
+        capabilities.setCapability("platform", platform);
+        capabilities.setCapability("name", testName);
+
+        String sauceUrl = String.format("http://%s:%s@ondemand.saucelabs.com:80/wd/hub",
+                sauceUser, sauceKey);
+
+        try {
+            driver = new RemoteWebDriver(new URL(sauceUrl), capabilities);
+        } catch(MalformedURLException e) {
+            System.out.println("ERROR: " + e);
+        }
+
+        driver.setFileDetector(new LocalFileDetector());
+
+        // String sessionId = (driver).getSessionId().toString();
+        sauceClient = new SauceREST(sauceUser, sauceKey);
+
+        driver.get("https://dev.conversations.dealerinspire.com/login");
+        WebElement webElement = driver.findElement(By.cssSelector("input[name=username]"));
+        webElement.sendKeys("TestUser");
+        Assert.assertTrue("did not find button", driver.findElement(By.cssSelector("button")).isDisplayed());
+        driver.quit();
     }
 
     public void iFindStrawNumberStraws(String strawNumber) {
